@@ -1,0 +1,39 @@
+<header>
+  <div class="title">
+    <h1>Loïc Barbier</h1>
+    <h2>Lead Full-Stack Developer</h2>
+  </div>
+</header>
+<div class="root">
+  <main>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link routerLink="/summary" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+        <mat-icon svgIcon="app-introduction"></mat-icon> Présentation
+      </a>
+      <a mat-tab-link routerLink="/skills" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive">
+        <mat-icon svgIcon="app-skill"></mat-icon> Compétences
+      </a>
+      <a mat-tab-link routerLink="/experiences" routerLinkActive #rla3="routerLinkActive" [active]="rla3.isActive">
+        <mat-icon svgIcon="app-experience"></mat-icon> Expériences
+      </a>
+      <a mat-tab-link routerLink="/education" routerLinkActive #rla4="routerLinkActive" [active]="rla4.isActive">
+        <mat-icon svgIcon="app-education"></mat-icon> Formation
+      </a>
+    </nav>
+
+    <router-outlet></router-outlet>
+  </main>
+  <section *ngIf="!(handset$ | async)">
+    <div class="picture"><img src="assets/profile.jpg"></div>
+    <app-resume-introduction></app-resume-introduction>
+    <div class="external-links">
+      <a mat-icon-button href="https://github.com/lbar">
+        <mat-icon svgIcon="app-github"></mat-icon>
+      </a>
+      <a mat-icon-button href="https://fr.linkedin.com/in/loicbarbier/">
+        <mat-icon svgIcon="app-linkedin"></mat-icon>
+      </a>
+    </div>
+    <app-resume-short-skills></app-resume-short-skills>
+  </section>
+</div>
