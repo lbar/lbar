@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-resume-skills',
-  templateUrl: './resume-skills.component.html',
-  styleUrls: ['./resume-skills.component.scss']
+    selector: 'app-resume-skills',
+    templateUrl: './resume-skills.component.html',
+    styleUrls: ['./resume-skills.component.scss']
 })
 export class ResumeSkillsComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
