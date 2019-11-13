@@ -13,6 +13,6 @@ jobs:
       - name: 'Build application'
         run: yarn build
       - name: 'Run tests'
-        run: yarn test --browsers=ChromeHeadless
+        run: yarn test --browsers=ChromeHeadless --watch=false
       - name: 'Check lint'
         run: yarn run lint
