@@ -21,7 +21,7 @@ jobs:
         run: yarn run lint
       - name: 'Deploy to GH-Pages'
         run: |
-          PACKAGE_VERSION=$(jq -r ".name" package.json)
+          PACKAGE_VERSION=$(jq -r ".version" package.json)
           yarn run ng deploy --repo=https://github.com/lbar/lbar.github.io.git --name="Auto-deploy" --email=lbar@users.noreply.github.com --cname=loicbarbier.fr --message="Deploy v${PACKAGE_VERSION}" --branch=master
         shell: bash
         env:
