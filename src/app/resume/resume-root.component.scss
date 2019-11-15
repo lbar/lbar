@@ -1,50 +1,48 @@
-header {
-  background: #3f51b5;
-  color: white;
-  padding: 5px;
+.resume-root {
+  display: block;
+  width: 960px;
+  margin: 20px auto;
 
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  background-color: white;
+  box-shadow: 15px 15px 50px 2px rgba(0, 0, 0, 0.75);
 
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  &.mobile {
+    width: 100%;
+    margin: 0;
 
-    h1, h2 {
-      margin: 0 10px;
-    }
-  }
-}
+    div.root {
+      min-height: unset;
 
-div.root {
-  display: flex;
-  flex-direction: row;
-
-  main {
-    flex: 3;
-
-    padding: 15px;
-
-    nav {
-      mat-icon {
-        margin-right: 10px;
+      main {
+        nav {
+          mat-icon {
+            margin-left: 10px;
+          }
+        }
       }
     }
   }
 
-  section {
-    flex: 1;
-
-    padding: 15px;
+  header {
+    background: #3f51b5;
+    color: white;
+    padding: 5px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 
-    background-color: #b5bbde;
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
 
-    font-size: 0.8em;
+      h1, h2 {
+        margin: 0 10px;
+        text-align: right;
+      }
+    }
 
     .picture {
       display: flex;
@@ -54,20 +52,67 @@ div.root {
 
       img {
         border-radius: 50%;
-        width: 150px;
+        width: 100px;
+        margin: 10px;
+      }
+    }
+  }
+
+  div.root {
+    display: flex;
+    flex-direction: row;
+    min-height: 700px;
+
+    main {
+      flex: 3;
+
+      padding: 15px;
+
+      nav {
+        a {
+          flex: 1;
+        }
+        mat-icon {
+          margin-right: 10px;
+        }
       }
     }
 
-    .external-links {
+    section {
+      flex: 1;
+
+      padding: 15px;
+
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      flex-direction: column;
 
-      margin: 5px;
+      background-color: #b5bbde;
 
-      img {
-        margin: 0 10px;
-        width: 32px;
+      font-size: 0.8em;
+
+      .picture {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: center;
+
+        img {
+          border-radius: 50%;
+          width: 150px;
+        }
+      }
+
+      .external-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        margin: 5px;
+
+        img {
+          margin: 0 10px;
+          width: 32px;
+        }
       }
     }
   }

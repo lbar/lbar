@@ -19,8 +19,18 @@
   }
 }
 
+.mobile-title {
+  color: #b5bbde;
+  font-size: 30px;
+}
+
 .page {
   z-index: 3;
   position: relative;
   margin-left: 100px;
+
+  &.full-page {
+    margin-left: 0
+  }
+
 }

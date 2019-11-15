@@ -1,43 +1,48 @@
-<header>
-	<div class="title">
-		<h1>Loïc Barbier</h1>
-		<h2>Lead Full-Stack Developer</h2>
-	</div>
-</header>
-<div class="root">
-	<main>
-		<nav mat-tab-nav-bar>
-			<a #rla="routerLinkActive" [active]="rla.isActive" mat-tab-link routerLink="/summary" routerLinkActive>
-				<mat-icon svgIcon="app-introduction"></mat-icon>
-				Présentation
-			</a>
-			<a #rla2="routerLinkActive" [active]="rla2.isActive" mat-tab-link routerLink="/skills" routerLinkActive>
-				<mat-icon svgIcon="app-skill"></mat-icon>
-				Compétences
-			</a>
-			<a #rla3="routerLinkActive" [active]="rla3.isActive" mat-tab-link routerLink="/experiences" routerLinkActive>
-				<mat-icon svgIcon="app-experience"></mat-icon>
-				Expériences
-			</a>
-			<a #rla4="routerLinkActive" [active]="rla4.isActive" mat-tab-link routerLink="/education" routerLinkActive>
-				<mat-icon svgIcon="app-education"></mat-icon>
-				Formation
-			</a>
-		</nav>
-
-		<router-outlet></router-outlet>
-	</main>
-	<section *ngIf="(handset$ | async) === false">
-		<div class="picture"><img src="assets/profile.jpg"></div>
-		<app-resume-introduction></app-resume-introduction>
-		<div class="external-links">
-			<a href="https://github.com/lbar" mat-icon-button>
-				<mat-icon svgIcon="app-github"></mat-icon>
-			</a>
-			<a href="https://fr.linkedin.com/in/loicbarbier/" mat-icon-button>
-				<mat-icon svgIcon="app-linkedin"></mat-icon>
-			</a>
+<div class="resume-root" [class.mobile]="handset$ | async">
+	<header>
+		<div class="title">
+			<h1>Loïc Barbier</h1>
+			<h2>Lead Full-Stack Developer</h2>
 		</div>
-		<app-resume-short-skills></app-resume-short-skills>
-	</section>
+		<div class="picture" *ngIf="handset$ | async"><img src="assets/profile.jpg"></div>
+	</header>
+	<div class="root">
+		<main>
+			<nav mat-tab-nav-bar>
+				<a #rla="routerLinkActive" [active]="rla.isActive" mat-tab-link routerLink="/summary" routerLinkActive>
+					<mat-icon svgIcon="app-introduction"></mat-icon>
+					<span *ngIf="(handset$ | async) === false">Présentation</span>
+				</a>
+				<a #rla2="routerLinkActive" [active]="rla2.isActive" mat-tab-link routerLink="/skills" routerLinkActive>
+					<mat-icon svgIcon="app-skill"></mat-icon>
+					<span *ngIf="(handset$ | async) === false">Compétences</span>
+				</a>
+				<a #rla3="routerLinkActive" [active]="rla3.isActive" mat-tab-link routerLink="/experiences" routerLinkActive>
+					<mat-icon svgIcon="app-experience"></mat-icon>
+					<span *ngIf="(handset$ | async) === false">Expériences</span>
+				</a>
+				<a #rla4="routerLinkActive" [active]="rla4.isActive" mat-tab-link routerLink="/education" routerLinkActive>
+					<mat-icon svgIcon="app-education"></mat-icon>
+					<span *ngIf="(handset$ | async) === false">Formation</span>
+				</a>
+			</nav>
+
+			<div>
+				<router-outlet #outlet="outlet"></router-outlet>
+			</div>
+		</main>
+		<section *ngIf="(handset$ | async) === false">
+			<div class="picture"><img src="assets/profile.jpg"></div>
+			<app-resume-introduction></app-resume-introduction>
+			<div class="external-links">
+				<a href="https://github.com/lbar" mat-icon-button>
+					<mat-icon svgIcon="app-github"></mat-icon>
+				</a>
+				<a href="https://fr.linkedin.com/in/loicbarbier/" mat-icon-button>
+					<mat-icon svgIcon="app-linkedin"></mat-icon>
+				</a>
+			</div>
+			<app-resume-short-skills></app-resume-short-skills>
+		</section>
+	</div>
 </div>
