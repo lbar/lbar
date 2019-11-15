@@ -1,4 +1,7 @@
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-with-vertical-title',
@@ -7,10 +10,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PageWithVerticalTitleComponent implements OnInit {
 
+    readonly handset$: Observable<boolean>;
+
     @Input()
     title: string;
 
-    constructor() {
+    constructor(private breakpointObserver: BreakpointObserver) {
+        this.handset$ = breakpointObserver.observe([Breakpoints.Handset]).pipe(
+                map(breakpointState => breakpointState.matches)
+        );
     }
 
     ngOnInit() {
