@@ -2,6 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {MatButtonModule, MatExpansionModule, MatIconModule, MatTabsModule} from '@angular/material';
 import {CoreModule} from '../core/core.module';
+import {DataModule} from '../data/data.module';
 import {ResumeEducationComponent} from './resume-education/resume-education.component';
 import {ResumeExperiencesComponent} from './resume-experiences/resume-experiences.component';
 import {ResumeIntroductionComponent} from './resume-introduction/resume-introduction.component';
@@ -28,10 +29,10 @@ import {ResumeSummaryComponent} from './resume-summary/resume-summary.component'
     imports: [
         CommonModule,
         ResumeRoutingModule,
+        CoreModule,
         MatIconModule,
         MatButtonModule,
         MatTabsModule,
-        CoreModule,
         MatExpansionModule
     ]
 })

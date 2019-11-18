@@ -1,4 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {DataModule} from '../../data/data.module';
 
 import {ResumeIntroductionComponent} from './resume-introduction.component';
 
@@ -8,7 +9,10 @@ describe('ResumeIntroductionComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ResumeIntroductionComponent]
+            declarations: [ResumeIntroductionComponent],
+            imports: [
+                DataModule.forRoot()
+            ]
         })
                 .compileComponents();
     }));
