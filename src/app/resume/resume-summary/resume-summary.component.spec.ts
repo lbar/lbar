@@ -1,15 +1,19 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {CoreModule} from '../../core/core.module';
+import {DataModule} from '../../data/data.module';
 import {ResumeSummaryComponent} from './resume-summary.component';
 
-describe('ResumeContactComponent', () => {
+describe('ResumeSummaryComponent', () => {
     let component: ResumeSummaryComponent;
     let fixture: ComponentFixture<ResumeSummaryComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ResumeSummaryComponent],
-            imports: [CoreModule]
+            imports: [
+                CoreModule,
+                DataModule.forRoot()
+            ]
         })
                 .compileComponents();
     }));
