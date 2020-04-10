@@ -10,7 +10,7 @@ import {DataService} from './data.service';
     ]
 })
 export class DataModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<DataModule> {
         return {
             ngModule: DataModule,
             providers: [
