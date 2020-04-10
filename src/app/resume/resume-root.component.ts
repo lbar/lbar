@@ -1,38 +1,38 @@
+import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Component, OnInit} from '@angular/core';
-import {MatIconRegistry} from '@angular/material';
+import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
 
 export const slideInAnimation =
-  trigger('routeAnimations', [
-    transition('* <=> *', [
-      style({position: 'relative'}),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [
-        style({left: '-100%'})
-      ]),
-      query(':leave', animateChild()),
-      group([
-        query(':leave', [
-          animate('300ms ease-out', style({left: '100%'}))
-        ]),
-        query(':enter', [
-          animate('300ms ease-out', style({left: '0%'}))
-        ])
-      ]),
-      query(':enter', animateChild()),
-    ])
-  ]);
+        trigger('routeAnimations', [
+            transition('* <=> *', [
+                style({position: 'relative'}),
+                query(':enter, :leave', [
+                    style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%'
+                    })
+                ]),
+                query(':enter', [
+                    style({left: '-100%'})
+                ]),
+                query(':leave', animateChild()),
+                group([
+                    query(':leave', [
+                        animate('300ms ease-out', style({left: '100%'}))
+                    ]),
+                    query(':enter', [
+                        animate('300ms ease-out', style({left: '0%'}))
+                    ])
+                ]),
+                query(':enter', animateChild()),
+            ])
+        ]);
 
 @Component({
     selector: 'app-resume-root',

@@ -1,6 +1,7 @@
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MatIconModule, MatTabsModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
 import {RouterTestingModule} from '@angular/router/testing';
 import {DataModule} from '../data/data.module';
 import {ResumeIntroductionComponent} from './resume-introduction/resume-introduction.component';
