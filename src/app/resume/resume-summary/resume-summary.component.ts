@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {DataService} from '../../data/data.service';
 
 @Component({
-    selector: 'app-resume-contact',
+    selector: 'app-resume-summary',
     templateUrl: './resume-summary.component.html',
     styleUrls: ['./resume-summary.component.scss']
 })
