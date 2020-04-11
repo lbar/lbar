@@ -1,0 +1,6 @@
+# Sitemaps
+Sitemap: https://loicbarbier.fr/sitemap.xml
+
+# Configs
+User-agent: *
+Crawl-delay: 10

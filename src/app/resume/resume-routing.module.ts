@@ -9,23 +9,31 @@ import {ResumeSummaryComponent} from './resume-summary/resume-summary.component'
 const routes: Routes = [
     {
         path: 'summary',
-        component: ResumeSummaryComponent
+        component: ResumeSummaryComponent,
+        data: {
+            title: 'Présentation'
+        }
     },
     {
         path: 'skills',
-        component: ResumeSkillsComponent
+        component: ResumeSkillsComponent,
+        data: {
+            title: 'Compétences'
+        }
     },
     {
         path: 'experiences',
-        component: ResumeExperiencesComponent
+        component: ResumeExperiencesComponent,
+        data: {
+            title: 'Expériences'
+        }
     },
     {
         path: 'education',
-        component: ResumeEducationComponent
-    },
-    {
-        path: 'contact',
-        component: ResumeSummaryComponent
+        component: ResumeEducationComponent,
+        data: {
+            title: 'Formation'
+        }
     },
     {
         path: '',

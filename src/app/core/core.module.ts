@@ -1,6 +1,7 @@
 import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {PageWithVerticalTitleComponent} from './page-with-vertical-title/page-with-vertical-title.component';
+import {TitleService} from './title.service';
 
 
 @NgModule({
@@ -13,4 +14,12 @@ import {PageWithVerticalTitleComponent} from './page-with-vertical-title/page-wi
     ]
 })
 export class CoreModule {
+    static forRoot(): ModuleWithProviders<CoreModule> {
+        return {
+            ngModule: CoreModule,
+            providers: [
+                TitleService
+            ]
+        };
+    }
 }

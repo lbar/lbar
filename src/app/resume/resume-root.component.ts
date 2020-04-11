@@ -5,6 +5,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {TitleService} from '../core/title.service';
 
 export const slideInAnimation =
         trigger('routeAnimations', [
@@ -30,7 +31,7 @@ export const slideInAnimation =
                         animate('300ms ease-out', style({left: '0%'}))
                     ])
                 ]),
-                query(':enter', animateChild()),
+                query(':enter', animateChild())
             ])
         ]);
 
@@ -43,7 +44,8 @@ export class ResumeRootComponent implements OnInit {
 
     readonly handset$: Observable<boolean>;
 
-    constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, breakpointObserver: BreakpointObserver) {
+    constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, breakpointObserver: BreakpointObserver,
+            private title: TitleService) {
         matIconRegistry.addSvgIcon('app-introduction', domSanitizer.bypassSecurityTrustResourceUrl('../assets/introduction.svg'));
         matIconRegistry.addSvgIcon('app-education', domSanitizer.bypassSecurityTrustResourceUrl('../assets/education.svg'));
         matIconRegistry.addSvgIcon('app-experience', domSanitizer.bypassSecurityTrustResourceUrl('../assets/experience.svg'));
