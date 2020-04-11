@@ -31,7 +31,7 @@ import {ResumeSummaryComponent} from './resume-summary/resume-summary.component'
     imports: [
         CommonModule,
         ResumeRoutingModule,
-        CoreModule,
+        CoreModule.forRoot(),
         MatIconModule,
         MatButtonModule,
         MatTabsModule,
