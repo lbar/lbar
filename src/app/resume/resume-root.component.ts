@@ -2,7 +2,7 @@ import {animate, animateChild, group, query, style, transition, trigger} from '@
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Component, OnInit} from '@angular/core';
 import {MatIconRegistry} from '@angular/material/icon';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, Meta} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {TitleService} from '../core/title.service';
@@ -45,7 +45,7 @@ export class ResumeRootComponent implements OnInit {
     readonly handset$: Observable<boolean>;
 
     constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, breakpointObserver: BreakpointObserver,
-            private title: TitleService) {
+            private title: TitleService, private meta: Meta) {
         matIconRegistry.addSvgIcon('app-introduction', domSanitizer.bypassSecurityTrustResourceUrl('../assets/introduction.svg'));
         matIconRegistry.addSvgIcon('app-education', domSanitizer.bypassSecurityTrustResourceUrl('../assets/education.svg'));
         matIconRegistry.addSvgIcon('app-experience', domSanitizer.bypassSecurityTrustResourceUrl('../assets/experience.svg'));
@@ -53,9 +53,18 @@ export class ResumeRootComponent implements OnInit {
         matIconRegistry.addSvgIcon('app-github', domSanitizer.bypassSecurityTrustResourceUrl('../assets/github.svg'));
         matIconRegistry.addSvgIcon('app-linkedin', domSanitizer.bypassSecurityTrustResourceUrl('../assets/linkedin.svg'));
 
-        this.handset$ = breakpointObserver.observe([Breakpoints.Handset]).pipe(
+        this.handset$ = breakpointObserver.observe(
+                [Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape, Breakpoints.TabletPortrait]).pipe(
                 map(breakpointState => breakpointState.matches)
         );
+        this.meta.addTag({
+            name: 'description',
+            content: 'Présentation, compétences et expériences de Loïc Barbier, lead full-stack developer Java/Javascript'
+        });
+        this.meta.addTag({
+            name: 'keywords',
+            content: 'Loïc, Barbier, présentation, compétences, expériences, full-stack, fullstack, Java, Javascript'
+        });
     }
 
     ngOnInit() {
