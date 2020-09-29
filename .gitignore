@@ -2,8 +2,10 @@
 
 # compiled output
 /dist
+/functions
 /tmp
 /out-tsc
+/.firebase
 
 # dependencies
 /node_modules

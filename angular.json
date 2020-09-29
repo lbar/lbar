@@ -17,7 +17,7 @@
 				"build": {
 					"builder": "@angular-devkit/build-angular:browser",
 					"options": {
-						"outputPath": "dist/loicbarbier",
+						"outputPath": "functions/dist/browser",
 						"index": "src/index.html",
 						"main": "src/main.ts",
 						"polyfills": "src/polyfills.ts",
@@ -124,6 +124,14 @@
 						"production": {
 							"devServerTarget": "loicbarbier:serve:production"
 						}
+					}
+				},
+				"server": {
+					"builder": "@angular-devkit/build-angular:server",
+					"options": {
+						"outputPath": "functions/dist/server",
+						"main": "src/main-ssr.ts",
+						"tsConfig": "tsconfig.app-ssr.json"
 					}
 				},
 				"deploy": {

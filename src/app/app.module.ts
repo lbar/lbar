@@ -6,12 +6,14 @@ import {AppComponent} from './app.component';
 import {DataModule} from './data/data.module';
 import {ResumeModule} from './resume/resume.module';
 
+export const APP_ID = 'loicbarbier';
+
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({appId: APP_ID}),
         ResumeModule,
         DataModule.forRoot(),
         BrowserAnimationsModule,
