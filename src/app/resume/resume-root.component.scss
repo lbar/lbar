@@ -1,119 +1,28 @@
-.resume-root {
-  display: block;
-  width: 960px;
-  margin: 20px auto;
+.section-profile {
+  background-image: url('/assets/bg1.svg');
+  @apply bg-cover;
+}
 
-  background-color: white;
-  box-shadow: 15px 15px 50px 2px rgba(0, 0, 0, 0.75);
+.section-aboutme {
+  background-image: url('/assets/bg2.svg');
+  @apply bg-cover;
+}
 
-  &.mobile {
-    width: 100%;
-    margin: 0;
+.section-skills {
+  background-image: url('/assets/bg3.svg');
+  @apply bg-cover;
+}
 
-    div.root {
-      min-height: unset;
+.contactme {
+  @apply h-screen w-0 fixed z-10 top-0 left-0 overflow-hidden py-10 text-white overflow-y-scroll;
+  background-color: rgba(18, 74, 133, 1);
+  transition: 0.5s;
 
-      main {
-        nav {
-          mat-icon {
-            margin-left: 10px;
-          }
-        }
-      }
-    }
+  &.contactme-open {
+    @apply w-full p-10;
   }
 
-  header {
-    background: #3f51b5;
-    color: white;
-    padding: 5px;
-
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
-    .title {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-
-      h1, h2 {
-        margin: 0 10px;
-        text-align: right;
-      }
-    }
-
-    .picture {
-      display: flex;
-      flex-direction: row;
-
-      justify-content: center;
-
-      img {
-        border-radius: 50%;
-        width: 100px;
-        margin: 10px;
-      }
-    }
-  }
-
-  div.root {
-    display: flex;
-    flex-direction: row;
-    min-height: 700px;
-
-    main {
-      flex: 3;
-
-      padding: 15px;
-
-      nav {
-        a {
-          flex: 1;
-        }
-        mat-icon {
-          margin-right: 10px;
-        }
-      }
-    }
-
-    section {
-      flex: 1;
-
-      padding: 15px;
-
-      display: flex;
-      flex-direction: column;
-
-      background-color: #b5bbde;
-
-      font-size: 0.8em;
-
-      .picture {
-        display: flex;
-        flex-direction: row;
-
-        justify-content: center;
-
-        img {
-          border-radius: 50%;
-          width: 150px;
-        }
-      }
-
-      .external-links {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-
-        margin: 5px;
-
-        img {
-          margin: 0 10px;
-          width: 32px;
-        }
-      }
-    }
+  .contactme-close {
+    @apply absolute right-10 top-4 text-4xl text-white;
   }
 }

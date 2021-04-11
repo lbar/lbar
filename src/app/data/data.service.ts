@@ -5,14 +5,11 @@ import {Moment} from 'moment';
 @Injectable()
 export class DataService {
 
-    constructor() {
-    }
+  getBirthDate(): Moment {
+    return moment('1984-10-08');
+  }
 
-    getBirthDate(): Moment {
-        return moment('1984-10-08');
-    }
-
-    getAge(): number {
-        return moment().diff(this.getBirthDate(), 'year');
-    }
+  getAge(): number {
+    return moment().diff(this.getBirthDate(), 'year');
+  }
 }

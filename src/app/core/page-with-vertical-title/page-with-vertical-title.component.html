@@ -1,6 +1,0 @@
-<div [class]="(handset$ | async) ? 'mobile-title' : 'background-title'">
-	<h3>{{title}}</h3>
-</div>
-<div [class.full-page]="handset$ | async" class="page">
-	<ng-content></ng-content>
-</div>

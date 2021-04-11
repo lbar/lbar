@@ -1,73 +1,68 @@
-import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Component, OnInit} from '@angular/core';
-import {MatIconRegistry} from '@angular/material/icon';
-import {DomSanitizer, Meta} from '@angular/platform-browser';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {TitleService} from '../core/title.service';
+import { animate, animateChild, group, query, style, transition, trigger } from '@angular/animations';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer, Meta } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-export const slideInAnimation =
-        trigger('routeAnimations', [
-            transition('* <=> *', [
-                style({position: 'relative'}),
-                query(':enter, :leave', [
-                    style({
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%'
-                    })
-                ]),
-                query(':enter', [
-                    style({left: '-100%'})
-                ]),
-                query(':leave', animateChild()),
-                group([
-                    query(':leave', [
-                        animate('300ms ease-out', style({left: '100%'}))
-                    ]),
-                    query(':enter', [
-                        animate('300ms ease-out', style({left: '0%'}))
-                    ])
-                ]),
-                query(':enter', animateChild())
-            ])
-        ]);
+export const slideInAnimation = trigger('routeAnimations', [
+  transition('* <=> *', [
+    style({position: 'relative'}),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+      }),
+    ]),
+    query(':enter', [style({left: '-100%'})]),
+    query(':leave', animateChild()),
+    group([
+      query(':leave', [animate('300ms ease-out', style({left: '100%'}))]),
+      query(':enter', [animate('300ms ease-out', style({left: '0%'}))]),
+    ]),
+    query(':enter', animateChild()),
+  ]),
+]);
 
 @Component({
-    selector: 'app-resume-root',
-    templateUrl: './resume-root.component.html',
-    styleUrls: ['./resume-root.component.scss']
+  selector: 'resume-root',
+  templateUrl: './resume-root.component.html',
+  styleUrls: ['./resume-root.component.scss'],
 })
-export class ResumeRootComponent implements OnInit {
+export class ResumeRootComponent {
+  readonly handset$: Observable<boolean>;
+  contactOpen = false;
 
-    readonly handset$: Observable<boolean>;
+  constructor(
+      private matIconRegistry: MatIconRegistry,
+      private domSanitizer: DomSanitizer,
+      breakpointObserver: BreakpointObserver,
+      private meta: Meta
+  ) {
+    matIconRegistry.addSvgIcon('app-github', domSanitizer.bypassSecurityTrustResourceUrl('../assets/github.svg'));
+    matIconRegistry.addSvgIcon('app-linkedin', domSanitizer.bypassSecurityTrustResourceUrl('../assets/linkedin.svg'));
 
-    constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, breakpointObserver: BreakpointObserver,
-            private title: TitleService, private meta: Meta) {
-        matIconRegistry.addSvgIcon('app-introduction', domSanitizer.bypassSecurityTrustResourceUrl('../assets/introduction.svg'));
-        matIconRegistry.addSvgIcon('app-education', domSanitizer.bypassSecurityTrustResourceUrl('../assets/education.svg'));
-        matIconRegistry.addSvgIcon('app-experience', domSanitizer.bypassSecurityTrustResourceUrl('../assets/experience.svg'));
-        matIconRegistry.addSvgIcon('app-skill', domSanitizer.bypassSecurityTrustResourceUrl('../assets/skill.svg'));
-        matIconRegistry.addSvgIcon('app-github', domSanitizer.bypassSecurityTrustResourceUrl('../assets/github.svg'));
-        matIconRegistry.addSvgIcon('app-linkedin', domSanitizer.bypassSecurityTrustResourceUrl('../assets/linkedin.svg'));
+    this.handset$ = breakpointObserver
+        .observe([Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape, Breakpoints.TabletPortrait])
+        .pipe(map((breakpointState) => breakpointState.matches));
+    this.meta.addTag({
+      name: 'description',
+      content: 'Introduction, skills et experiences of Loïc Barbier, lead full-stack developer Java/Javascript',
+    });
+    this.meta.addTag({
+      name: 'keywords',
+      content: 'Loïc, Barbier, introduction, skills, experiences, full-stack, fullstack, Java, Javascript',
+    });
+  }
 
-        this.handset$ = breakpointObserver.observe(
-                [Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape, Breakpoints.TabletPortrait]).pipe(
-                map(breakpointState => breakpointState.matches)
-        );
-        this.meta.addTag({
-            name: 'description',
-            content: 'Présentation, compétences et expériences de Loïc Barbier, lead full-stack developer Java/Javascript'
-        });
-        this.meta.addTag({
-            name: 'keywords',
-            content: 'Loïc, Barbier, présentation, compétences, expériences, full-stack, fullstack, Java, Javascript'
-        });
-    }
+  displayContact() {
+    this.contactOpen = true;
+  }
 
-    ngOnInit() {
-    }
-
+  hideContact() {
+    this.contactOpen = false;
+  }
 }

@@ -1,25 +1,20 @@
-import {CommonModule} from '@angular/common';
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {PageWithVerticalTitleComponent} from './page-with-vertical-title/page-with-vertical-title.component';
-import {TitleService} from './title.service';
-
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ButtonComponent } from './button/button.component';
+import { IconButtonComponent } from './icon-button/icon-button.component';
 
 @NgModule({
-    declarations: [PageWithVerticalTitleComponent],
-    exports: [
-        PageWithVerticalTitleComponent
-    ],
-    imports: [
-        CommonModule
-    ]
+  declarations: [ButtonComponent, IconButtonComponent],
+  exports: [ButtonComponent, IconButtonComponent],
+  imports: [CommonModule],
 })
 export class CoreModule {
-    static forRoot(): ModuleWithProviders<CoreModule> {
-        return {
-            ngModule: CoreModule,
-            providers: [
-                TitleService
-            ]
-        };
-    }
+  static forRoot(): ModuleWithProviders<CoreModule> {
+    return {
+      ngModule: CoreModule,
+      providers: [
+        // TitleService
+      ],
+    };
+  }
 }

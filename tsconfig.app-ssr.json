@@ -1,20 +1,20 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"outDir": "./out-tsc/app",
-		"baseUrl": "./",
-		"target": "es2016",
-		"types": []
-	},
-	"files": [
-		"src/main-ssr.ts"
-	],
-	"exclude": [
-		"src/**/*.spec.ts",
-		"e2e/**/*.e2e-spec.ts",
-		"src/test.ts"
-	],
-	"angularCompilerOptions": {
-		"entryModule": "src/app/app.server.module#AppServerModule"
-	}
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "baseUrl": "./",
+    "target": "es2016",
+    "types": []
+  },
+  "files": [
+    "src/main-ssr.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "e2e/**/*.e2e-spec.ts",
+    "src/test.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "src/app/app.server.module#AppServerModule"
+  }
 }

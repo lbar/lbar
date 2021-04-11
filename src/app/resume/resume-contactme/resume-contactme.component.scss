@@ -1,0 +1,50 @@
+h2,
+label,
+button {
+  @apply truncate overflow-clip;
+}
+
+h2 {
+  @apply font-bold text-2xl uppercase lg:capitalize border-b-2 mb-8;
+}
+
+.contactme-form {
+  @apply flex flex-col max-w-lg mx-auto;
+
+  &-field {
+    @apply flex flex-col mb-4;
+
+    &-label-required-marker {
+      @apply text-sm text-red-400;
+    }
+
+    input,
+    textarea {
+      @apply text-gray-800;
+    }
+
+    &-error {
+      @apply text-sm text-red-400;
+    }
+  }
+
+  button {
+    @apply self-center;
+  }
+}
+
+.contactme-getintouch {
+  @apply flex flex-row max-w-lg mx-auto my-10;
+
+  &-text {
+    @apply flex-auto py-4;
+  }
+
+  &-links {
+    @apply flex-auto flex flex-row h-4;
+
+    a[resume-icon-button] {
+      @apply w-4 h-4 filter invert;
+    }
+  }
+}

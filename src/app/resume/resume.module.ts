@@ -1,42 +1,17 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTabsModule} from '@angular/material/tabs';
-import {CoreModule} from '../core/core.module';
-import {ResumeEducationComponent} from './resume-education/resume-education.component';
-import {ResumeExperiencesComponent} from './resume-experiences/resume-experiences.component';
-import {ResumeIntroductionComponent} from './resume-introduction/resume-introduction.component';
-import {ResumeRootComponent} from './resume-root.component';
-import {ResumeRoutingModule} from './resume-routing.module';
-import {ResumeShortSkillsComponent} from './resume-short-skills/resume-short-skills.component';
-import {ResumeSkillsComponent} from './resume-skills/resume-skills.component';
-import {ResumeSummaryComponent} from './resume-summary/resume-summary.component';
-
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CoreModule } from '../core/core.module';
+import { ResumeContactmeComponent } from './resume-contactme/resume-contactme.component';
+import { ResumeRootComponent } from './resume-root.component';
+import { ResumeSlideSelectorItemComponent } from './resume-slide-selector/resume-slide-selector-item.component';
+import { ResumeSlideSelectorComponent } from './resume-slide-selector/resume-slide-selector.component';
 
 @NgModule({
-    declarations: [
-        ResumeRootComponent,
-        ResumeIntroductionComponent,
-        ResumeSkillsComponent,
-        ResumeExperiencesComponent,
-        ResumeEducationComponent,
-        ResumeSummaryComponent,
-        ResumeShortSkillsComponent
-    ],
-    exports: [
-        ResumeRootComponent
-    ],
-    imports: [
-        CommonModule,
-        ResumeRoutingModule,
-        CoreModule.forRoot(),
-        MatIconModule,
-        MatButtonModule,
-        MatTabsModule,
-        MatExpansionModule
-    ]
+  declarations: [ResumeRootComponent, ResumeSlideSelectorComponent, ResumeSlideSelectorItemComponent, ResumeContactmeComponent],
+  exports: [ResumeRootComponent],
+  imports: [CommonModule, ReactiveFormsModule, CoreModule.forRoot(), MatSnackBarModule],
 })
 export class ResumeModule {
 }

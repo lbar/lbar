@@ -1,48 +1,117 @@
-<div class="resume-root" [class.mobile]="handset$ | async">
-	<header>
-		<div class="title">
-			<h1>Loïc Barbier</h1>
-			<h2>Lead Full-Stack Developer</h2>
-		</div>
-		<div class="picture" *ngIf="handset$ | async"><img src="assets/profile.jpg"></div>
-	</header>
-	<div class="root">
-		<main>
-			<nav mat-tab-nav-bar>
-				<a #rla="routerLinkActive" [active]="rla.isActive" mat-tab-link routerLink="/summary" routerLinkActive>
-					<mat-icon svgIcon="app-introduction"></mat-icon>
-					<span *ngIf="(handset$ | async) === false">Présentation</span>
-				</a>
-				<a #rla2="routerLinkActive" [active]="rla2.isActive" mat-tab-link routerLink="/skills" routerLinkActive>
-					<mat-icon svgIcon="app-skill"></mat-icon>
-					<span *ngIf="(handset$ | async) === false">Compétences</span>
-				</a>
-				<a #rla3="routerLinkActive" [active]="rla3.isActive" mat-tab-link routerLink="/experiences" routerLinkActive>
-					<mat-icon svgIcon="app-experience"></mat-icon>
-					<span *ngIf="(handset$ | async) === false">Expériences</span>
-				</a>
-				<a #rla4="routerLinkActive" [active]="rla4.isActive" mat-tab-link routerLink="/education" routerLinkActive>
-					<mat-icon svgIcon="app-education"></mat-icon>
-					<span *ngIf="(handset$ | async) === false">Formation</span>
-				</a>
-			</nav>
-
-			<div>
-				<router-outlet #outlet="outlet"></router-outlet>
-			</div>
-		</main>
-		<section *ngIf="(handset$ | async) === false">
-			<div class="picture"><img src="assets/profile.jpg"></div>
-			<app-resume-introduction></app-resume-introduction>
-			<div class="external-links">
-				<a href="https://github.com/lbar" mat-icon-button>
-					<mat-icon svgIcon="app-github"></mat-icon>
-				</a>
-				<a href="https://fr.linkedin.com/in/loicbarbier/" mat-icon-button>
-					<mat-icon svgIcon="app-linkedin"></mat-icon>
-				</a>
-			</div>
-			<app-resume-short-skills></app-resume-short-skills>
-		</section>
-	</div>
+<nav
+    class="fixed left-1/2 lg:left-0 w-1/2 lg:w-full z-10 h-30 text-5xl flex flex-row px-4 bg-gradient-to-l from-gray-100"
+>
+  <span class="flex-auto"></span>
+  <a href="https://github.com/lbar" resume-icon-button>
+    <img alt="github" src="./assets/github.svg"/>
+  </a>
+  <a href="https://fr.linkedin.com/in/loicbarbier/" resume-icon-button>
+    <img alt="linkedin" src="./assets/linkedin.svg"/>
+  </a>
+</nav>
+<div class="hidden lg:block">
+  <ol resume-slide-selector>
+    <li anchor="profile" ariaLabel="Profile" resume-slide-selector-item></li>
+    <li anchor="aboutme" ariaLabel="About Me" resume-slide-selector-item></li>
+    <li anchor="skills" ariaLabel="Skills" resume-slide-selector-item></li>
+  </ol>
 </div>
+<aside [class.contactme-open]="contactOpen" class="contactme">
+  <button (click)="hideContact()" class="contactme-close">×</button>
+
+  <resume-contactme (messageSubmitted)="hideContact()"></resume-contactme>
+</aside>
+<main class="max-h-screen overflow-y-scroll snap snap-y snap-mandatory smooth-scroll">
+  <section
+      class="section-profile w-screen h-screen flex justify-center items-center relative lg:snap-start pb-8 pt-4 lg:pb-0"
+      id="profile"
+  >
+    <div class="flex-auto mx-auto">
+      <div class="flex flex-col lg:flex-row justify-center items-center">
+        <div class="p-10 w-48 h-48">
+          <img alt="Profile picture" class="rounded-full ring-2" src="./assets/profile.jpg"/>
+        </div>
+        <div class="flex flex-col items-center lg:items-start">
+          <h1 class="text-2xl lg:text-5xl text-white font-bold font-title">
+            Loïc <span class="font-extrabold">Barbier</span>
+          </h1>
+          <div
+              class="overflow-hidden whitespace-nowrap mb-10 tracking-widest border-r-2 border-red-400 animate-typing-with-caret"
+          >
+            <h4 class="font-mono lg:text-2xl text-gray-300">Lead Full-Stack Developer</h4>
+          </div>
+          <button (click)="displayContact()" resume-button>
+            Contact me
+            <svg class="w-5 h-5 text-white" viewBox="0 0 20 20">
+              <path
+                  d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"
+                  fill="currentColor"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+      class="section-aboutme w-screen lg:h-screen flex justify-center items-center relative lg:snap-start pb-8 pt-4 lg:pb-0"
+      id="aboutme"
+  >
+    <div
+        class="hidden lg:block absolute text-white opacity-25 tracking-widest uppercase transform translate-x-20 -rotate-90 origin-bottom-left bottom-0 left-0 text-7xl"
+    >
+      About Me
+    </div>
+    <div class="flex-auto mx-8 lg:mx-48 text-white">
+      <h2 class="font-bold text-2xl uppercase lg:capitalize border-b-2 font-title">About Me</h2>
+      <p class="my-10">
+        As a Web developer for more 15 years and as a Software Architect for 5 years, I have acquired a solid DevOps
+        experience in the design of efficient and resilient technical architectures as well as their operation. I also
+        master the design of rich client applications at the frond end.
+      </p>
+      <p class="my-10">
+        In a educational role I also participate in the technical animation of the R&D teams and facilitate development
+        of their skills through training and support.
+      </p>
+      <p class="my-10">
+        I also master the industrialization processes through the assembly of a software factory (continuous
+        integration, automatic quality verification, continuous deployment).
+      </p>
+      <p class="my-10">
+        Passionate developer with a taste for challenge, I am always looking for the best way to solve algorithmic or
+        logical problems and how to solve them in a business logic.
+      </p>
+    </div>
+  </section>
+  <section
+      class="section-skills w-screen lg:h-screen flex justify-center items-center relative lg:snap-start pb-8 pt-4 lg:pb-0"
+      id="skills"
+  >
+    <div
+        class="hidden lg:block absolute text-white opacity-25 tracking-widest uppercase transform translate-x-20 -rotate-90 origin-bottom-left bottom-0 left-0 text-7xl"
+    >
+      Skills
+    </div>
+    <div class="flex-auto mx-8 lg:mx-48 text-white">
+      <h2 class="font-bold text-2xl uppercase lg:capitalize border-b-2 font-title">Skills</h2>
+
+      <h5 class="font-bold text-lg my-10">Aptitudes</h5>
+      <ul class="list-disc list-inside">
+        <li>Passionate, taste for challenge, open</li>
+        <li>Leadership, team spirit</li>
+        <li>Autonomous</li>
+        <li>Creative and source of proposals</li>
+        <li>Accept change, entrepreneurial spirit</li>
+      </ul>
+
+      <h5 class="font-bold text-lg my-10">Technical Skills</h5>
+      <ul class="list-disc list-inside">
+        <li>Java 16 / Spring ecosystem / Hibernate</li>
+        <li>EventSourcing / Oracle / PostgreSQL / MySQL / MongoDB / Redis</li>
+        <li>Node / Nx / Express / Nest.js / Angular / Typescript</li>
+        <li>Containerization / Docker / IaC</li>
+        <li>Scrum / TDD / Continuous Integration & Deployment</li>
+      </ul>
+    </div>
+  </section>
+</main>
