@@ -1,0 +1,63 @@
+<form (ngSubmit)="sendMessage()" [formGroup]="contactForm" class="contactme-form">
+  <h2 class="font-title">Contact Me</h2>
+
+  <div class="contactme-form-field">
+    <label [for]="controlId + '_contact-name'"
+    >Your name <span aria-hidden="true" class="contactme-form-field-label-required-marker"> *</span></label
+    >
+    <input [id]="controlId + '_contact-name'" formControlName="contactName" required type="text"/>
+    <div
+        *ngIf="contactForm.get('contactName').dirty && contactForm.get('contactName').invalid"
+        class="contactme-form-field-error"
+    >
+      Your name is required.
+    </div>
+  </div>
+  <div class="contactme-form-field">
+    <label [for]="controlId + '_contact-email'"
+    >Your email <span aria-hidden="true" class="contactme-form-field-label-required-marker"> *</span></label
+    >
+    <input [id]="controlId + '_contact-email'" formControlName="contactEmail" required type="text"/>
+    <div
+        *ngIf="contactForm.get('contactEmail').dirty && contactForm.get('contactEmail').invalid"
+        class="contactme-form-field-error"
+    >
+      Your email is required and should be a valid email.
+    </div>
+  </div>
+  <div class="contactme-form-field">
+    <label [for]="controlId + '_subject'"
+    >Subject <span aria-hidden="true" class="contactme-form-field-label-required-marker"> *</span></label
+    >
+    <input [id]="controlId + '_subject'" formControlName="subject" required type="text"/>
+    <div
+        *ngIf="contactForm.get('subject').dirty && contactForm.get('subject').invalid"
+        class="contactme-form-field-error"
+    >
+      Subject is required.
+    </div>
+  </div>
+  <div class="contactme-form-field">
+    <label [for]="controlId + '_message'"
+    >Message <span aria-hidden="true" class="contactme-form-field-label-required-marker"> *</span></label
+    >
+    <textarea [id]="controlId + '_message'" formControlName="message" required rows="6"></textarea>
+    <div
+        *ngIf="contactForm.get('message').dirty && contactForm.get('message').invalid"
+        class="contactme-form-field-error"
+    >
+      Message is required.
+    </div>
+  </div>
+
+  <button [disabled]="contactForm.invalid" resume-button type="submit">Send Me Message</button>
+</form>
+
+<div class="contactme-getintouch">
+  <label class="contactme-getintouch-text">Get in touch ⇢</label>
+  <span class="contactme-getintouch-links">
+    <a href="https://fr.linkedin.com/in/loicbarbier/" resume-icon-button>
+      <img alt="linkedin" src="./assets/linkedin.svg"/>
+    </a>
+  </span>
+</div>

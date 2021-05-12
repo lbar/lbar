@@ -1,42 +1,42 @@
-html, body {
-  height: 100%;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Fira+Sans:ital,wght@0,100;0,200;0,400;0,600;0,800;1,100;1,200;1,400;1,600;1,800&family=Jura:wght@700&display=swap');
+
+@layer utilities {
+  @variants responsive {
+    .snap {
+      scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
+    }
+
+    .no-snap {
+      scroll-snap-type: none;
+    }
+
+    .snap-y {
+      --scroll-snap-direction: y;
+    }
+
+    .snap-mandatory {
+      --scroll-snap-constraint: mandatory;
+    }
+
+    .snap-start {
+      scroll-snap-align: start;
+    }
+
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+
+    .text-0 {
+      font-size: 0;
+      line-height: 0;
+    }
+  }
 }
 
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #cfe1ee;
-}
-
-p {
-  text-align: justify;
-}
-
-.date-table {
-  display: flex;
-  flex-direction: column;
-
-  dt {
-    flex: none;
-
-    div {
-      display: flex;
-      align-items: center;
-
-      font-weight: normal;
-      color: white;
-      text-align: center;
-
-      background-color: #3f51b5;
-      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.75);
-
-      padding: 10px;
-    }
-  }
-
-  dd {
-    flex: 1 1 60%;
-
-    margin-bottom: 30px;
-  }
+  font-family: 'Fira Sans', sans-serif;
 }
