@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { CoreModule } from '../core/core.module';
 import { ResumeContactmeComponent } from './resume-contactme/resume-contactme.component';
 import { ResumeRootComponent } from './resume-root.component';
 import { ResumeSlideSelectorItemComponent } from './resume-slide-selector/resume-slide-selector-item.component';
 import { ResumeSlideSelectorComponent } from './resume-slide-selector/resume-slide-selector.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [ResumeRootComponent, ResumeSlideSelectorComponent, ResumeSlideSelectorItemComponent, ResumeContactmeComponent],
