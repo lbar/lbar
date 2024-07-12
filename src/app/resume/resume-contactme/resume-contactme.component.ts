@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ContactMeService, ContactRequest } from '../../core/contact-me.service';
 
@@ -11,12 +11,12 @@ let nextUniqueId = 1;
   styleUrls: ['./resume-contactme.component.scss'],
 })
 export class ResumeContactmeComponent {
-  contactForm: FormGroup;
+  contactForm: UntypedFormGroup;
   controlId = `resume-contactme-${nextUniqueId++}`;
 
   @Output() messageSubmitted = new EventEmitter<void>();
 
-  constructor(fb: FormBuilder, private contactMe: ContactMeService, private snackBar: MatSnackBar) {
+  constructor(fb: UntypedFormBuilder, private contactMe: ContactMeService, private snackBar: MatSnackBar) {
     this.contactForm = fb.group({
       contactName: [undefined, Validators.required],
       contactEmail: [undefined, Validators.email],
