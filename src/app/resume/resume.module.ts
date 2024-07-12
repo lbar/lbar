@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { CoreModule } from '../core/core.module';
 import { ResumeContactmeComponent } from './resume-contactme/resume-contactme.component';
 import { ResumeRootComponent } from './resume-root.component';
