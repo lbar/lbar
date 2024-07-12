@@ -4964,15 +4964,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/line-clamp@npm:0.4.4":
-  version: 0.4.4
-  resolution: "@tailwindcss/line-clamp@npm:0.4.4"
-  peerDependencies:
-    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
-  checksum: 10c0/53e74e75bff066469501b784ab70af444fa460d556a3adf95cb14ccf1a56b1e63c106f0c4bb94463ba0310f2ce1f71350f9b18a556048655cfd2a0ad308ccfb8
-  languageName: node
-  linkType: hard
-
 "@tailwindcss/typography@npm:0.5.13":
   version: 0.5.13
   resolution: "@tailwindcss/typography@npm:0.5.13"
@@ -5449,7 +5440,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:7.16.0":
+"@typescript-eslint/types@npm:7.16.0, @typescript-eslint/types@npm:^7.16.0":
   version: 7.16.0
   resolution: "@typescript-eslint/types@npm:7.16.0"
   checksum: 10c0/5d7080991241232072c50c1e1be35976631f764fe0f4fd43cf1026a2722aab772a14906dfaa322183b040c6ca8ae4494a78f653dd3b22bcdbdfe063a301240b0
@@ -5475,7 +5466,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:7.16.0":
+"@typescript-eslint/utils@npm:7.16.0, @typescript-eslint/utils@npm:^7.16.0":
   version: 7.16.0
   resolution: "@typescript-eslint/utils@npm:7.16.0"
   dependencies:
@@ -11328,7 +11319,6 @@ __metadata:
     "@ngneat/tailwind": "npm:7.0.3"
     "@tailwindcss/aspect-ratio": "npm:0.4.2"
     "@tailwindcss/forms": "npm:0.5.7"
-    "@tailwindcss/line-clamp": "npm:0.4.4"
     "@tailwindcss/typography": "npm:0.5.13"
     "@types/express": "npm:^4.17.21"
     "@types/jasmine": "npm:~5.1.4"
@@ -11336,6 +11326,8 @@ __metadata:
     "@types/node": "npm:^20.14.10"
     "@typescript-eslint/eslint-plugin": "npm:7.16.0"
     "@typescript-eslint/parser": "npm:7.16.0"
+    "@typescript-eslint/types": "npm:^7.16.0"
+    "@typescript-eslint/utils": "npm:^7.16.0"
     autoprefixer: "npm:^10.4.19"
     browser-sync: "npm:^3.0.2"
     emailjs-com: "npm:^2.6.4"

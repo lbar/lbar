@@ -1,17 +1,17 @@
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { async, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ContactMeService } from './core/contact-me.service';
 import { DataModule } from './data/data.module';
 import { ResumeModule } from './resume/resume.module';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
     declarations: [AppComponent],
-    imports: [RouterTestingModule, ResumeModule, DataModule.forRoot()],
+    imports: [RouterModule.forRoot([]), ResumeModule, DataModule.forRoot()],
     providers: [{ provide: ContactMeService, useValue: {} }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
 }).compileComponents();
   }));

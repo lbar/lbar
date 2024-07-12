@@ -1,7 +1,6 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import emailjs from 'emailjs-com';
-import { Observable } from 'rxjs';
-import { fromPromise } from 'rxjs/internal-compatibility';
+import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface ContactRequest {
@@ -25,7 +24,7 @@ export class ContactMeService {
   }
 
   send(contactRequest: ContactRequest): Observable<string> {
-    return fromPromise(
+    return from(
         emailjs.send(this.emailJsConfig.serviceID, this.emailJsConfig.templateID, contactRequest, this.emailJsConfig.userID)
     ).pipe(map(() => contactRequest.contactEmail));
   }
