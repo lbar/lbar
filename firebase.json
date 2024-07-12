@@ -1,22 +1,8 @@
 {
   "hosting": [
     {
-      "public": "public",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "loicbarbier",
-      "public": "dist/loicbarbier/dist/loicbarbier/browser",
+      "public": "dist/loicbarbier/browser",
       "ignore": [
         "**/.*"
       ],
@@ -30,16 +16,7 @@
             }
           ]
         }
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "function": "ssr"
-        }
       ]
     }
-  ],
-  "functions": {
-    "source": "dist/loicbarbier"
-  }
+  ]
 }
