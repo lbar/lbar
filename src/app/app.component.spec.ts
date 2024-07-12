@@ -1,18 +1,19 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { async, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { ContactMeService } from './core/contact-me.service';
 import { DataModule } from './data/data.module';
 import { ResumeModule } from './resume/resume.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ResumeModule, DataModule.forRoot(), HttpClientTestingModule],
-      declarations: [AppComponent],
-      providers: [{provide: ContactMeService, useValue: {}}],
-    }).compileComponents();
+    declarations: [AppComponent],
+    imports: [RouterTestingModule, ResumeModule, DataModule.forRoot()],
+    providers: [{ provide: ContactMeService, useValue: {} }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
   }));
 
   it('should create the app', () => {
