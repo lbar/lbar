@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { ContactMeService, ContactRequest } from '../../core/contact-me.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 let nextUniqueId = 1;
 

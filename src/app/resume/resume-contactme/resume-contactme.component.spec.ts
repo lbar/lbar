@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { ContactMeService } from '../../core/contact-me.service';
 import { ResumeContactmeComponent } from './resume-contactme.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('ResumeContactmeComponent', () => {
   let component: ResumeContactmeComponent;
